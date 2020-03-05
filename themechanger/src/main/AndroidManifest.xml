@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.aydarov.themechanger">
+
+    <application>
+        <activity
+            android:name=".ThemeChanger"
+            android:theme="@style/ThemeChangeTheme" />
+    </application>
+
+
+</manifest>

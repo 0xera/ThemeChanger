@@ -7,7 +7,7 @@ This is a library for changing themes as in Telegram or Vk.
 ## Installation
 
 ```groovy
-implementation 'io.github.0xera:themechanger:0.2-alpha'
+implementation 'io.github.0xera:themechanger:0.1'
 ```
 
 ## Usage

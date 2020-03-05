@@ -1,0 +1,3 @@
+rootProject.name='ThemeChanger'
+include ':app'
+include ':themechanger'
