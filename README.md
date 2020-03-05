@@ -7,12 +7,12 @@ This is a library for changing themes as in Telegram or Vk.
 ## Installation
 
 ```groovy
-implementation 'io.github.0xera:themechanger:0.1'
+implementation 'io.github.0xera:themechanger:0.1.1'
 ```
 
 ## Usage
 
-With the creation of acvitity install the theme according to what is stored in preferences.
+With the creation of activity install the theme according to what is stored in preferences.
 
 ```java
     if (checkTheme()) {
