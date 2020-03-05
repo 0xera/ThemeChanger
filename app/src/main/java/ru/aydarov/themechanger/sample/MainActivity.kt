@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnChange.setOnTouchListener { _, event ->
-            val action = ThemeChanger.prepareToChange(this, event)
-            if (action) {
+                val action = ThemeChanger.prepareToChange(this, event)
+                if (action) {
                 if (checkTheme())
                     updateTheme(false)
                 else
