@@ -79,12 +79,12 @@ class ThemeChanger : AppCompatActivity() {
 
     private fun startAnimation() {
         ViewAnimationUtils.createCircularReveal(
-            ivScreenshot,
-            mPositionX,
-            mPositionY,
-            calculateValues(),
-            0f
-        )
+                ivScreenshot,
+                mPositionX,
+                mPositionY,
+                calculateValues(),
+                0f
+            )
             .apply {
                 duration = DURATION_ANIM.toLong()
                 interpolator = DecelerateInterpolator()
@@ -116,7 +116,7 @@ class ThemeChanger : AppCompatActivity() {
         private const val ACTION_THEME_CHANGE = "ru.magic.+theme-change"
         private var receiver: ThemeChangerReceiver? = null
 
-        class ThemeChangerReceiver(private var referenceActivity: WeakReference<AppCompatActivity>?) :
+        private class ThemeChangerReceiver(private var referenceActivity: WeakReference<AppCompatActivity>?) :
             BroadcastReceiver() {
 
             override fun onReceive(context: Context, intent: Intent) {
@@ -164,6 +164,7 @@ class ThemeChanger : AppCompatActivity() {
             }
         }
 
+        @JvmStatic
         fun prepareToChange(context: Context, event: MotionEvent): Boolean {
             mActionDown = if (event.action == MotionEvent.ACTION_DOWN) true
             else if (event.action == MotionEvent.ACTION_UP && mActionDown) {
