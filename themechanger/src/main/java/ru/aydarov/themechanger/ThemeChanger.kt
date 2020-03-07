@@ -166,11 +166,13 @@ class ThemeChanger : AppCompatActivity() {
 
         @JvmStatic
         fun prepareToChange(context: Context, event: MotionEvent): Boolean {
-            mActionDown = if (event.action == MotionEvent.ACTION_DOWN) true
-            else if (event.action == MotionEvent.ACTION_UP && mActionDown) {
-                changeTheme(context, event.rawX.toInt(), event.rawY.toInt())
-                false
-            } else false
+            mActionDown =
+                if (event.action == MotionEvent.ACTION_DOWN || event.action == MotionEvent.ACTION_MOVE)
+                    true
+                else if (event.action == MotionEvent.ACTION_UP && mActionDown) {
+                    changeTheme(context, event.rawX.toInt(), event.rawY.toInt())
+                    false
+                } else false
             return !mActionDown
 
         }
