@@ -3,11 +3,12 @@
 This is a library for changing themes as in Telegram or Vk.
 
 ![](https://media.giphy.com/media/j5ndt9Uhr27D1VLu5R/giphy.gif)
+![](https://media.giphy.com/media/UQgXKAcUT3yHHB773v/giphy.gif)
 
 ## Installation
 
 ```groovy
-implementation 'io.github.0xera:themechanger:0.1.2'
+implementation 'io.github.0xera:themechanger:0.1.3'
 ```
 
 ## Usage

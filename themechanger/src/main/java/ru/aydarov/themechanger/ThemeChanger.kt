@@ -112,7 +112,7 @@ class ThemeChanger : AppCompatActivity() {
         private const val IMG_EXTRA = "img"
         private const val X_POS = "X_POS"
         private const val Y_POS = "Y_POS"
-        private const val DURATION_ANIM = 400
+        private var DURATION_ANIM = 400
         private const val ACTION_THEME_CHANGE = "ru.magic.+theme-change"
         private var receiver: ThemeChangerReceiver? = null
 
@@ -165,7 +165,8 @@ class ThemeChanger : AppCompatActivity() {
         }
 
         @JvmStatic
-        fun prepareToChange(context: Context, event: MotionEvent): Boolean {
+        fun prepareToChange(context: Context, event: MotionEvent, duration: Int = DURATION_ANIM): Boolean {
+            DURATION_ANIM = duration
             mActionDown =
                 if (event.action == MotionEvent.ACTION_DOWN || event.action == MotionEvent.ACTION_MOVE)
                     true
