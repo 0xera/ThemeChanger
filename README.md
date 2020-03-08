@@ -7,7 +7,7 @@ This is a library for changing themes as in Telegram or Vk.
 ## Installation
 
 ```groovy
-implementation 'io.github.0xera:themechanger:0.1.1'
+implementation 'io.github.0xera:themechanger:0.1.2'
 ```
 
 ## Usage
@@ -15,28 +15,28 @@ implementation 'io.github.0xera:themechanger:0.1.1'
 With the creation of activity install the theme according to what is stored in preferences.
 
 ```java
-    if (checkTheme()) {
-            setTheme(R.style.ThemeLight)
-        } else {
-            setTheme(R.style.ThemeDark)
-        }
+if (checkTheme()) {
+    setTheme(R.style.ThemeLight)
+} else {
+    setTheme(R.style.ThemeDark)
+}
 
-    setContentView(R.layout.activity_main)
+setContentView(R.layout.activity_main)
 ```
 
 Then hang the listener of touch events on the view and call ```prepareToChange()```, passing it the context of the activity and event. If ```prepareToChange()``` returns true change the theme value in preferences.
 
 ```java
-        btnChange.setOnTouchListener { _, event ->
-            val action = ThemeChanger.prepareToChange(this, event)
-            if (action) {
-                if (checkTheme())
-                    updateTheme(false)
-                else
-                    updateTheme(true)
-            }
-            action
-        }
+btnChange.setOnTouchListener { _, event ->
+    val action = ThemeChanger.prepareToChange(this, event)
+    if (action) {
+        if (checkTheme())
+            updateTheme(false)
+        else
+            updateTheme(true)
+    }
+    action
+}
 ```
 
 ## Also
