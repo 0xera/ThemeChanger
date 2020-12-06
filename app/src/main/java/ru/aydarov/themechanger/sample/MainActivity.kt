@@ -4,20 +4,13 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.aydarov.themechanger.ThemeChanger
+import ru.aydarov.themechanger.ThemeChanger.changeTheme
 
 class MainActivity : AppCompatActivity() {
-    private val onTouchListener = View.OnTouchListener { _, event ->
-        val action = ThemeChanger.prepareToChange(this, event, 1000)
-        if (action) {
-            if (checkTheme())
-                updateTheme(false)
-            else
-                updateTheme(true)
-        }
-        action
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,23 +19,27 @@ class MainActivity : AppCompatActivity() {
         } else {
             setTheme(R.style.ThemeDark)
         }
-
         setContentView(R.layout.activity_main)
 
         setListeners()
-
     }
 
     private fun setListeners() {
-        btnChange1.setOnTouchListener(onTouchListener)
-        btnChange2.setOnTouchListener(onTouchListener)
-        btnChange3.setOnTouchListener(onTouchListener)
-        btnChange4.setOnTouchListener(onTouchListener)
-        btnChange5.setOnTouchListener(onTouchListener)
-        btnChange6.setOnTouchListener(onTouchListener)
-        btnChange7.setOnTouchListener(onTouchListener)
-        btnChange8.setOnTouchListener(onTouchListener)
-        btnChange9.setOnTouchListener(onTouchListener)
+        val inAminOnClickListener = View.OnClickListener { view ->
+            changeTheme(view, 1000) {
+                if (checkTheme()) updateTheme(false)
+                else updateTheme(true)
+            }
+        }
+        btnChange1.setOnClickListener(inAminOnClickListener)
+        btnChange2.setOnClickListener(inAminOnClickListener)
+        btnChange3.setOnClickListener(inAminOnClickListener)
+        btnChange4.setOnClickListener(inAminOnClickListener)
+        btnChange5.setOnClickListener(inAminOnClickListener)
+        btnChange6.setOnClickListener(inAminOnClickListener)
+        btnChange7.setOnClickListener(inAminOnClickListener)
+        btnChange8.setOnClickListener(inAminOnClickListener)
+        btnChange9.setOnClickListener(inAminOnClickListener)
     }
 
     private fun checkTheme() =

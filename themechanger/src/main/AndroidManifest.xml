@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name=".ThemeChanger"
+            android:name=".ThemeChangerActivity"
             android:theme="@style/ThemeChangeTheme" />
     </application>
 
